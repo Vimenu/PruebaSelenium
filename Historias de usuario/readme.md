@@ -1,64 +1,70 @@
-# Historias de Usuario – Proyecto Selenium Amazon
+# Historias de Usuario
 
-## Historia 1: Buscar un producto
-
-**Como** usuario de Amazon,  
-**quiero** poder escribir el nombre de un producto en el buscador,  
-**para** ver los resultados relacionados con mi búsqueda.
-
--  Criterios de aceptación:
-  - Se debe mostrar una lista de productos relacionados.
--  Criterios de rechazo:
-  - No se debe ejecutar búsqueda si el campo está vacío.
-
----
-
-## Historia 2: Aplicar filtro de envío gratis
+## Historia 1: Ingreso a la página de Amazon
 
 **Como** usuario,  
-**quiero** aplicar un filtro de envío gratis,  
-**para** reducir los resultados a los productos que no me cobren envío.
+**quiero** abrir la página principal de Amazon,  
+**para** comenzar el proceso de navegación y búsqueda de productos.
 
--  Criterios de aceptación:
-  - Al activar el filtro, los resultados deben actualizarse correctamente.
--  Criterios de rechazo:
-  - No debe aplicar si el filtro no está disponible.
+- **Criterios de aceptación:**
+  - El navegador debe abrir correctamente la página de Amazon.
+  - Se debe tomar una captura de pantalla inicial (`01_inicio.png`).
+- **Criterios de rechazo:**
+  - Si la página no carga o no se toma la captura, la prueba debe fallar.
 
 ---
 
-## Historia 3: Ver detalles de un producto
+## Historia 2: Búsqueda de productos
 
 **Como** usuario,  
-**quiero** acceder a los detalles de un producto al hacer clic,  
-**para** conocer su descripción, precio y calificación.
+**quiero** ingresar un término de búsqueda en la barra,  
+**para** encontrar productos relacionados con mis intereses.
 
--  Criterios de aceptación:
-  - La página del producto debe mostrar toda la información detallada.
--  Criterios de rechazo:
-  - Si no se carga correctamente la página del producto, se debe notificar.
-
----
-
-## Historia 4: Captura de cada paso del proceso
-
-**Como** tester,  
-**quiero** que se tomen capturas automáticas en cada paso del proceso,  
-**para** documentar los escenarios de prueba de forma visual.
-
--  Criterios de aceptación:
-  - Cada paso debe guardar una imagen con nombre descriptivo.
--  Criterios de rechazo:
-  - Si no hay capturas, no se considera válida la prueba.
+- **Criterios de aceptación:**
+  - Se debe ingresar el texto "wireless headphones" y ejecutar la búsqueda.
+  - Se debe capturar la pantalla de los resultados (`02_busqueda.png`).
+- **Criterios de rechazo:**
+  - Si no se encuentra la barra o no carga la página de resultados, la prueba debe fallar.
 
 ---
 
-## Historia 5: Reporte de resultados
+## Historia 3: Aplicación de filtro de envío gratis
 
-**Como** desarrollador QA,  
-**quiero** que las pruebas generen un reporte HTML,  
-**para** presentar los resultados de manera clara y profesional.
+**Como** usuario,  
+**quiero** aplicar el filtro "Free Shipping by Amazon",  
+**para** visualizar únicamente productos que no cobren envío.
 
--  Criterios de aceptación:
-  - El archivo HTML debe mostrar si la prueba pasó o falló.
--  Criterios de rechazo:
-  - Si el reporte está vacío o no se genera, se considera incompleto.
+- **Criterios de aceptación:**
+  - Si el filtro está disponible, debe aplicarse correctamente.
+  - Se debe capturar la pantalla del resultado filtrado (`03_filtro_envio_gratis.png`).
+- **Criterios de rechazo:**
+  - Si el filtro no está disponible, la prueba continúa sin fallar, pero se notifica en consola.
+
+---
+
+## Historia 4: Selección y acceso al producto
+
+**Como** usuario,  
+**quiero** hacer clic en uno de los productos listados,  
+**para** ver más detalles del mismo.
+
+- **Criterios de aceptación:**
+  - Se debe hacer clic en el primer producto de la lista.
+  - La página del producto debe abrirse en una nueva pestaña.
+  - Se debe tomar una captura (`04_producto_seleccionado.png`).
+- **Criterios de rechazo:**
+  - Si no se encuentran productos, la prueba debe fallar.
+
+---
+
+## Historia 5: Visualización de información del producto
+
+**Como** usuario,  
+**quiero** ver el nombre, precio y calificación de un producto,  
+**para** evaluar si cumple con mis expectativas.
+
+- **Criterios de aceptación:**
+  - Se debe extraer el título, el precio y la calificación.
+  - Se debe capturar la pantalla final (`05_info_producto.png`).
+- **Criterios de rechazo:**
+  - Si no se puede extraer alguna información, se guarda captura de error y la prueba falla.
